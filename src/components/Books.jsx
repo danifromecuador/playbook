@@ -2,11 +2,11 @@ import Book from './Book';
 
 const Books = () => {
   return (
-    <div className="books">
+    <ul className="books">
       <Book />
       <Book />
       <Book />
-    </div>
+    </ul>
   )
 }
 
