@@ -1,6 +1,12 @@
+import Books from '../components/Books'
+import Input from '../components/Input'
+
 const Home = () => {
   return (
-    <div>Home</div>
+    <div className="home">
+      <Books />
+      <Input />
+    </div>
   )
 }
 
