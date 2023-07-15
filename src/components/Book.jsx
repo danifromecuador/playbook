@@ -1,12 +1,14 @@
-const Book = () => {
+import PropTypes from 'prop-types';
+
+const Book = ({array}) => {  
   return (
     <li className="book">
 
       <div className="left">
         <div className="cover">
-          <div className="category">Action</div>
-          <div className="title">The Hunger Games</div>
-          <div className="author">Suzanne Collins</div>
+          <div className="category">{array.category}</div>
+          <div className="title">{array.title}</div>
+          <div className="author">{array.author}</div>
         </div>
         <div className="buttons">
           <button type="button">Comments</button>
@@ -20,8 +22,8 @@ const Book = () => {
       <div className="center">
         <div className="circular-progress">O</div>
         <div className="percentaje-progress">
-          <div className="percentaje">64%</div>
-          <div className="completed">Completed</div>
+          <div className="percentaje">{array.progress}</div>
+          <div className="completed">{array.progress === "100" ? "Completed" : "Incomplete"}</div>
         </div>        
       </div>
 
@@ -29,12 +31,23 @@ const Book = () => {
 
       <div className="right">
         <div className="current-chapter">CURRENT CHAPTER</div>
-        <div className="chapter">Chapter 17</div>
+        <div className="chapter">{array.currentChapter}</div>
         <button>UPDATE PROGRESS</button>
       </div>
 
     </li>
   )
 }
+
+Book.propTypes = {
+  array: PropTypes.shape({
+    category: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    author: PropTypes.string.isRequired,
+    progress: PropTypes.string.isRequired,
+    currentChapter: PropTypes.string.isRequired,
+  }).isRequired,
+
+};
 
 export default Book;
