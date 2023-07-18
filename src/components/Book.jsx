@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types';
 
-const Book = ({array}) => {  
+const Book = ({category, title, author, progress, currentChapter}) => {
   return (
     <li className="book">
 
       <div className="left">
         <div className="cover">
-          <div className="category">{array.category}</div>
-          <div className="title">{array.title}</div>
-          <div className="author">{array.author}</div>
+          <div className="category">{category}</div>
+          <div className="title">{title}</div>
+          <div className="author">{author}</div>
         </div>
         <div className="buttons">
           <button type="button">Comments</button>
@@ -22,8 +22,8 @@ const Book = ({array}) => {
       <div className="center">
         <div className="circular-progress">O</div>
         <div className="percentaje-progress">
-          <div className="percentaje">{array.progress}</div>
-          <div className="completed">{array.progress === "100" ? "Completed" : "Incomplete"}</div>
+          <div className="percentaje">{progress}</div>
+          <div className="completed">{progress === "100" ? "Completed" : "Incomplete"}</div>
         </div>        
       </div>
 
@@ -31,7 +31,7 @@ const Book = ({array}) => {
 
       <div className="right">
         <div className="current-chapter">CURRENT CHAPTER</div>
-        <div className="chapter">{array.currentChapter}</div>
+        <div className="chapter">{currentChapter}</div>
         <button>UPDATE PROGRESS</button>
       </div>
 
@@ -40,14 +40,11 @@ const Book = ({array}) => {
 }
 
 Book.propTypes = {
-  array: PropTypes.shape({
-    category: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-    author: PropTypes.string.isRequired,
-    progress: PropTypes.string.isRequired,
-    currentChapter: PropTypes.string.isRequired,
-  }).isRequired,
-
+  category: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  author: PropTypes.string.isRequired,
+  progress: PropTypes.string.isRequired,
+  currentChapter: PropTypes.string.isRequired,
 };
 
 export default Book;

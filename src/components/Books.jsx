@@ -28,7 +28,14 @@ const Books = () => {
   return (
     <ul className="books">
       {array.map((element, index) => (
-        <Book key={index} array={element} />
+        <Book
+          key={index}
+          category={element.category}
+          title={element.title}
+          author={element.author}
+          progress={element.progress}
+          currentChapter={element.currentChapter}
+        />
       ))}
     </ul>
   );
