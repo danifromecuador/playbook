@@ -5,8 +5,6 @@ const initialState = {
 }
 
 const booksSlice = createSlice({
-
-
   name: "books",
   initialState,
   reducers: {
