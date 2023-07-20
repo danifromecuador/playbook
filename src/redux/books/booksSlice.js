@@ -14,12 +14,6 @@ const initialState = {
         "title": "Anna Karenina",
         "author": "Leo Tolstoy",
         "category": "Fiction"
-      },
-      {
-        "item_id": "item3",
-        "title": "The Selfish Gene",
-        "author": "Richard Dawkins",
-        "category": "Nonfiction"
       }
     ],
 }
@@ -28,15 +22,11 @@ const booksSlice = createSlice({
   name: "books",
   initialState,
   reducers: {
-    addBook: (state, action) => {
-      state.array.push(action.payload)
-      // return console.log(state.array)
-    },
-    removeBook: (state, action) => {
-      state.array = state.array.filter((book) => book.id !== action.payload)
+    addBook: (state = initialState, action) => {
+      return console.log("addBook");
+      }
     }
-  }
-})
+  })
 
 export const { addBook } = booksSlice.actions
 export default booksSlice.reducer

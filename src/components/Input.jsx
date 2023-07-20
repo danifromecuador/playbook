@@ -1,8 +1,11 @@
+// Input.jsx
 import { useState } from "react";
-
+import { useDispatch } from "react-redux";
+import { addBook } from "../redux/books/booksSlice";
 const Input = () => {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
+  const dispatch = useDispatch();
 
   function handleTitleInputChange(event) {
     setTitle(event.target.value);
@@ -12,10 +15,9 @@ const Input = () => {
     setAuthor(event.target.value);
   }
 
-
   function handleAddButtonClick(event) {
-    event.preventDefault()
-    return console.log(title, author)
+    event.preventDefault();
+    dispatch(addBook({ "item_id": "item3", "title": "New Book", "author": "Author", "category": "Category" }));
   }
 
   return (
