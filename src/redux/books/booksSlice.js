@@ -23,10 +23,14 @@ const booksSlice = createSlice({
   initialState,
   reducers: {
     addBook: (state = initialState, action) => {
-      return console.log("addBook");
+      const newBook = action.payload;
+      return {
+        ...state,
+        array: [...state.array, newBook],
       }
     }
-  })
+  }
+})
 
 export const { addBook } = booksSlice.actions
 export default booksSlice.reducer

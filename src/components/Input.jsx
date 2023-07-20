@@ -17,7 +17,7 @@ const Input = () => {
 
   function handleAddButtonClick(event) {
     event.preventDefault();
-    dispatch(addBook({ "item_id": "item3", "title": "New Book", "author": "Author", "category": "Category" }));
+    dispatch(addBook({ "title": title, "author": author }));
   }
 
   return (
