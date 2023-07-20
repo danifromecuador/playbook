@@ -1,5 +1,4 @@
 import Book from './Book';
-
 const Books = () => {
   const array = [
     {
