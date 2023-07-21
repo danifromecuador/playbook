@@ -1,14 +1,8 @@
+import { useSelector } from 'react-redux';
 import Book from './Book';
+
 const Books = () => {
-  const array = [
-    {
-      category: 'Action',
-      title: 'The Hunger Games',
-      author: 'Suzanne Collins',
-      progress: '100',
-      currentChapter: 'Chapter 17',
-    }
-  ];
+  const array = useSelector((state) => state.books.array);
 
   return (
     <ul className="books">

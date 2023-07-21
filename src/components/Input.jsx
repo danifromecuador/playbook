@@ -1,7 +1,7 @@
-// Input.jsx
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addBook } from "../redux/books/booksSlice";
+
 const Input = () => {
   const [title, setTitle] = useState("");
   const [author, setAuthor] = useState("");
