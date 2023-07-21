@@ -9,6 +9,7 @@ const Books = () => {
       {array.map((element, index) => (
         <Book
           key={index}
+          index={index}
           category={element.category}
           title={element.title}
           author={element.author}

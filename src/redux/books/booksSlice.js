@@ -20,9 +20,12 @@ const booksSlice = createSlice({
         ...state,
         array: [...state.array, newBook],
       }
+    },
+    removeBook: (state = initialState, action) => {
+      return console.log("removeBook");
     }
   }
 })
 
-export const { addBook } = booksSlice.actions
+export const { addBook, removeBook } = booksSlice.actions
 export default booksSlice.reducer
