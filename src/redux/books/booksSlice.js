@@ -22,7 +22,8 @@ const booksSlice = createSlice({
       }
     },
     removeBook: (state = initialState, action) => {
-      return console.log("removeBook");
+      console.log(action.payload.index)
+      return state;
     }
   }
 })

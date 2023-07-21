@@ -3,8 +3,9 @@ import { useDispatch } from 'react-redux';
 import { removeBook } from '../redux/books/booksSlice';
 
 const Book = ({index, category, title, author, progress, currentChapter}) => {
-  const removeBook = () => {
-    console.log(index)
+  const dispatch = useDispatch();
+  const onRemoveHandler = () => {
+    dispatch(removeBook({"index": index}));
   }
 
   return (
@@ -19,7 +20,7 @@ const Book = ({index, category, title, author, progress, currentChapter}) => {
         <div className="buttons">
           <button type="button">Comments</button>
           <hr />
-          <button type="button" onClick={removeBook}>Remove</button>
+          <button type="button" onClick={onRemoveHandler}>Remove</button>
           <hr />
           <button type="button">Edit</button>
         </div>
@@ -46,6 +47,7 @@ const Book = ({index, category, title, author, progress, currentChapter}) => {
 }
 
 Book.propTypes = {
+  index: PropTypes.number.isRequired,
   category: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
