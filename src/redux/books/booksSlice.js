@@ -25,6 +25,12 @@ const booksSlice = createSlice({
     removeBook: (state = initialState, action) => {
       const newArray = [...state.array];
       newArray.splice(action.payload.index, 1);
+      for (let i = 0; i < newArray.length; i++) {
+        newArray[i] = {
+          ...newArray[i],
+          item_id: `item${i + 1}`,
+        };
+      }
       return {
         ...state,
         array: newArray,
