@@ -1,6 +1,13 @@
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
+import { removeBook } from '../redux/books/booksSlice';
 
-const Book = ({category, title, author, progress, currentChapter}) => {
+const Book = ({index, category, title, author, progress, currentChapter}) => {
+  const dispatch = useDispatch();
+  const onRemoveHandler = () => {
+    dispatch(removeBook({"index": index}));
+  }
+
   return (
     <li className="book">
 
@@ -13,7 +20,7 @@ const Book = ({category, title, author, progress, currentChapter}) => {
         <div className="buttons">
           <button type="button">Comments</button>
           <hr />
-          <button type="button">Remove</button>
+          <button type="button" onClick={onRemoveHandler}>Remove</button>
           <hr />
           <button type="button">Edit</button>
         </div>
@@ -40,11 +47,12 @@ const Book = ({category, title, author, progress, currentChapter}) => {
 }
 
 Book.propTypes = {
+  index: PropTypes.number.isRequired,
   category: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
-  progress: PropTypes.string.isRequired,
-  currentChapter: PropTypes.string.isRequired,
+  progress: PropTypes.string,
+  currentChapter: PropTypes.string,
 };
 
 export default Book;
