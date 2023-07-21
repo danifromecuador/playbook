@@ -18,6 +18,8 @@ const Input = () => {
   function handleAddButtonClick(event) {
     event.preventDefault();
     if (title && author) dispatch(addBook({ "title": title, "author": author }));
+    setTitle("");
+    setAuthor("");
   }
 
   return (
