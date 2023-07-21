@@ -17,15 +17,15 @@ const Input = () => {
 
   function handleAddButtonClick(event) {
     event.preventDefault();
-    dispatch(addBook({ "title": title, "author": author }));
+    if (title && author) dispatch(addBook({ "title": title, "author": author }));
   }
 
   return (
     <div className="input">
       <h3>ADD NEW BOOK</h3>
       <form>
-        <input type="text" placeholder="Title" onChange={handleTitleInputChange}/>
-        <input type="text" placeholder="Author" onChange={handleAuthorInputChange} />
+        <input type="text" placeholder="Title" onChange={handleTitleInputChange} value={title}/>
+        <input type="text" placeholder="Author" onChange={handleAuthorInputChange} value={author}/>
         <button onClick={handleAddButtonClick}>ADD A BOOK</button>
       </form>
     </div>
