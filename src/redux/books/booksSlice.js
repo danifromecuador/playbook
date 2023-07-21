@@ -23,7 +23,12 @@ const booksSlice = createSlice({
   initialState,
   reducers: {
     addBook: (state = initialState, action) => {
-      const newBook = action.payload;
+      const newBook = {
+        item_id: `item${state.array.length + 1}`,
+        title: action.payload.title,
+        author: action.payload.author,
+        category: "unknown"
+      };
       return {
         ...state,
         array: [...state.array, newBook],
