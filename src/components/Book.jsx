@@ -47,7 +47,7 @@ const Book = ({index, category, title, author, progress, currentChapter}) => {
 }
 
 Book.propTypes = {
-  index: PropTypes.number.isRequired,
+  // index: PropTypes.number.isRequired,
   category: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,

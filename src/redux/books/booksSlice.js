@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchArray } from "../../services/bookStoreAPI";
+import bookStoreAPI from "../../services/bookStoreAPI"; // Import the bookStoreAPI object that contains the getBooks async thunk.
 
 const initialState = {
   array: [],
@@ -11,23 +11,22 @@ const booksSlice = createSlice({
   name: "books",
   initialState,
   reducers: {},
-  extraReducers: (builder) => {
-    builder
-      .addCase(fetchArray.pending, (state, action) => {
-        state.isLoading = true;
-        state.error = null;
-      })
-      .addCase(fetchArray.fulfilled, (state, action) => {
-        state.isLoading = false;
-        state.array = action.payload;
-      })
-      .addCase(fetchArray.rejected, (state, action) => {
-        state.isLoading = false;
-        state.error = action.error.message;
-      });
-  },
+  // extraReducers: (builder) => {
+  //   builder
+  //     .addCase(bookStoreAPI.getBooks.pending, (state) => {
+  //       state.isLoading = true;
+  //       state.error = undefined;
+  //     })
+  //     .addCase(bookStoreAPI.getBooks.fulfilled, (state, action) => {
+  //       state.isLoading = false;
+  //       state.array = action.payload;
+  //       state.error = undefined;
+  //     })
+  //     .addCase(bookStoreAPI.getBooks.rejected, (state, action) => {
+  //       state.isLoading = false;
+  //       state.error = action.payload;
+  //     });
+  // },
 });
 
 export default booksSlice.reducer;
-
-// Path: src/redux/books/booksSlice.js

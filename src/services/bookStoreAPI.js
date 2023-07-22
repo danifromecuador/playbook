@@ -1,24 +1,34 @@
+import axios from "axios";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-const obtainArrayFromAPI = async () => {
-  const apiID = "bGRMoVcg6JSZDPv8vrLC";
-  const baseURL = `https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/${apiID}/books`;
+const apiID = "bGRMoVcg6JSZDPv8vrLC";
+const baseURL = 'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/';
 
+const getBooks = createAsyncThunk("books/getBooks", async (thunkAPI) => {
   try {
-    const response = await fetch(baseURL);
-
-    if (!response.ok) {
-      throw new Error("Failed to fetch data from the API");
-    }
-
-    const data = await response.json();
-    return data;
+    const response = await axios.get(`${baseURL}apps/${apiID}/books`);
+    console.log(response.data);
+    return [{index: "0", title: "No books found", category: "No books found", author: "juan perez"},];
   } catch (error) {
-    throw new Error("Error fetching data from the API");
+    return thunkAPI.rejectWithValue(error);
   }
+});
+
+export function booksToArray() {
+  const array = getBooks();
+  return array;
 };
 
-export const fetchArray = createAsyncThunk("users/fetchArray", obtainArrayFromAPI);
+export function addBook() {
+  console.log('addBook');
+}
 
+const bookStoreAPI = {
+  getBooks,
+  addBook,
+  booksToArray
+};
+
+export default bookStoreAPI;
 
 // Path: src/services/bookStoreAPI.js
