@@ -1,26 +1,12 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import Book from './Book';
-import bookStoreAPI from '../services/bookStoreAPI';
 
 const Books = () => {
-  const dispatch = useDispatch();
-  // const booksArray = useSelector((state) => state.books.array);
-
-  useEffect(() => {
-    dispatch(bookStoreAPI.getBooks());
-  }, [dispatch]);
-
-  const booksArray = [{index: 0, title: "No books found", category: "No books found", author: "juan perez"},];
-
-  // useEffect(() => {
-  //   console.log(booksArray);
-  // }, [booksArray]);
-
+  const array = useSelector((state) => state.books.array);
 
   return (
     <ul className="books">
-      {booksArray.map((element, index) => (
+      {array.map((element, index) => (
         <Book
           key={index}
           index={index}
@@ -31,11 +17,8 @@ const Books = () => {
           currentChapter={element.currentChapter}
         />
       ))}
-      <Book />
     </ul>
   );
 };
 
 export default Books;
-
-// Path: src/components/Books.jsx
