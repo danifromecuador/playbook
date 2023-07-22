@@ -5,7 +5,8 @@ import array from './array';
 
 export const URL =
   'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/AZWwdB6xdu3Biv6ZvG64/books/';
-export const getBooksFromServer = createAsyncThunk('bookshelf/getBooks', async () => {
+
+export const getBooksFromServer = createAsyncThunk('books/getBooks', async () => {
   const formatApiResponse = (response) => {
     const formattedData = Object.keys(response).map((key) => {
       return {
@@ -20,6 +21,11 @@ export const getBooksFromServer = createAsyncThunk('bookshelf/getBooks', async (
   const formatResp = formatApiResponse(response.data);
   console.log(formatResp);
   return formatResp;
+});
+
+export const addBookToServer = createAsyncThunk('books/addBook', async (bookData) => {
+  const response = await axios.post(URL, bookData);
+  return response.data;
 });
 
 const initialState = {

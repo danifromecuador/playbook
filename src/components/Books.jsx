@@ -1,8 +1,15 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { useEffect } from 'react';  
 import Book from './Book';
+import { getBooksFromServer } from '../redux/books/booksSlice';
+
 
 const Books = () => {
+  const dispatch = useDispatch();
   const array = useSelector((state) => state.books.array);
+  useEffect(() => {
+    dispatch(getBooksFromServer());
+  }, []);
 
   return (
     <ul className="books">
