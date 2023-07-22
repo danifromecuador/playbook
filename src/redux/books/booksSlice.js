@@ -1,41 +1,30 @@
 import { createSlice } from "@reduxjs/toolkit";
 import array from './array';
+import { fetchUser } from "../../services/bookStoreAPI";
 
 const initialState = {
   array: array,
+  isLoading: false,
+  error: undefined,
 };
 
 const booksSlice = createSlice({
   name: "books",
   initialState,
-  reducers: {
-    addBook: (state = initialState, action) => {
-      const newBook = {
-        item_id: `item${state.array.length + 1}`,
-        title: action.payload.title,
-        author: action.payload.author,
-        category: "unknown",
-      };
-      return {
-        ...state,
-        array: [...state.array, newBook],
-      };
-    },
-
-    removeBook: (state = initialState, action) => {
-      const newArray = [...state.array];
-      newArray.splice(action.payload.index, 1);
-      for (let i = 0; i < newArray.length; i++) {
-        newArray[i] = {
-          ...newArray[i],
-          item_id: `item${i + 1}`,
-        };
-      }
-      return {
-        ...state,
-        array: newArray,
-      };
-    },
+  reducers: {},
+  extraReducers: (builder) => {
+    builder
+      .addCase("users/fetchUser/pending", (state, action) => {
+        state.isLoading = true;
+      })
+      .addCase("users/fetchUser/fulfilled", (state, action) => {
+        state.isLoading = false;
+        state.array = action.payload;
+      })
+      .addCase("users/fetchUser/rejected", (state, action) => {
+        state.isLoading = false;
+        state.error = action.error.message;
+      });
   },
 });
 
