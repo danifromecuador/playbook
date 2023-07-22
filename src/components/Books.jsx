@@ -1,6 +1,6 @@
 import { useSelector, useDispatch } from 'react-redux';
 import Book from './Book';
-import {fetchUsers} from '../services/bookStoreAPI';
+import {fetchArray} from '../services/bookStoreAPI';
 import { useEffect } from 'react';
 
 
@@ -9,7 +9,7 @@ const Books = () => {
   const array = useSelector((state) => state.books.array);
 
   useEffect(() => {
-    dispatch(fetchUsers());
+    dispatch(fetchArray());
   }, [dispatch]);
 
   useEffect(() => {

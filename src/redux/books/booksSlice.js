@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { fetchUsers } from "../../services/bookStoreAPI";
+import { fetchArray } from "../../services/bookStoreAPI";
 
 const initialState = {
   array: [],
@@ -13,15 +13,15 @@ const booksSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
-      .addCase(fetchUsers.pending, (state, action) => {
+      .addCase(fetchArray.pending, (state, action) => {
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(fetchUsers.fulfilled, (state, action) => {
+      .addCase(fetchArray.fulfilled, (state, action) => {
         state.isLoading = false;
         state.array = action.payload;
       })
-      .addCase(fetchUsers.rejected, (state, action) => {
+      .addCase(fetchArray.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.error.message;
       });

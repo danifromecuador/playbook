@@ -12,14 +12,13 @@ const obtainArrayFromAPI = async () => {
     }
 
     const data = await response.json();
-    // console.log(data); ins't workign
     return data;
   } catch (error) {
     throw new Error("Error fetching data from the API");
   }
 };
 
-export const fetchUsers = createAsyncThunk("users/fetchUser", obtainArrayFromAPI);
+export const fetchArray = createAsyncThunk("users/fetchArray", obtainArrayFromAPI);
 
 
 // Path: src/services/bookStoreAPI.js
