@@ -11,7 +11,11 @@ const Books = () => {
   useEffect(() => {
     dispatch(fetchUsers());
   }, [dispatch]);
-  
+
+  useEffect(() => {
+    if (array) console.log(array);
+  }, [array]);
+
 
   return (
     <ul className="books">

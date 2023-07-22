@@ -15,6 +15,7 @@ const booksSlice = createSlice({
     builder
       .addCase(fetchUsers.pending, (state, action) => {
         state.isLoading = true;
+        state.error = null;
       })
       .addCase(fetchUsers.fulfilled, (state, action) => {
         state.isLoading = false;
@@ -28,3 +29,5 @@ const booksSlice = createSlice({
 });
 
 export default booksSlice.reducer;
+
+// Path: src/redux/books/booksSlice.js
