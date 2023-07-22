@@ -18,6 +18,7 @@ const Books = () => {
         <Book
           key={index}
           index={index}
+          item_id={element.item_id}
           category={element.category}
           title={element.title}
           author={element.author}

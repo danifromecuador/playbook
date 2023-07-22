@@ -26,6 +26,11 @@ export const addBookToServer = createAsyncThunk('books/addBook', async (bookData
   return response.data;
 });
 
+export const removeBookFromServer = createAsyncThunk('bookshelf/removeBook', async (bookId) => {
+  const response = await axios.delete(`${URL}${bookId}`);
+  return response.data;
+});
+
 const initialState = {
   books: [],
   status: null,
@@ -64,7 +69,7 @@ const booksSlice = createSlice({
       };
     },
   },
-  
+
   extraReducers: (builder) => {
     builder
       .addCase(getBooksFromServer.pending, (state) => {
