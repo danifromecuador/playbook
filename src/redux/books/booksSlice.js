@@ -1,7 +1,5 @@
- 
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import array from './array';
 
 export const URL =
   'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/AZWwdB6xdu3Biv6ZvG64/books/';
@@ -29,7 +27,9 @@ export const addBookToServer = createAsyncThunk('books/addBook', async (bookData
 });
 
 const initialState = {
-  array: URL ? [] : array,
+  books: [],
+  status: null,
+  error: null,
 };
 
 const booksSlice = createSlice({
@@ -64,6 +64,7 @@ const booksSlice = createSlice({
       };
     },
   },
+  
   extraReducers: (builder) => {
     builder
       .addCase(getBooksFromServer.pending, (state) => {
@@ -82,3 +83,5 @@ const booksSlice = createSlice({
 
 export const { addBook, removeBook } = booksSlice.actions;
 export default booksSlice.reducer;
+
+// Path: src/redux/books/booksSlice.js

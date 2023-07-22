@@ -6,14 +6,15 @@ import { getBooksFromServer } from '../redux/books/booksSlice';
 
 const Books = () => {
   const dispatch = useDispatch();
-  const array = useSelector((state) => state.books.array);
+  const books = useSelector((state) => state.books.books);
+
   useEffect(() => {
     dispatch(getBooksFromServer());
   }, []);
 
   return (
     <ul className="books">
-      {array.map((element, index) => (
+      {books.map((element, index) => (
         <Book
           key={index}
           index={index}
@@ -29,3 +30,5 @@ const Books = () => {
 };
 
 export default Books;
+
+// Path: src/components/Books.js
