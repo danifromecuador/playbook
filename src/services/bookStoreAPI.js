@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-const fetchUserAsync = async () => {
+const fetchUsersAsync = async () => {
   try {
     const response = await fetch ("https://randomuser.me/api/?results=5");
     const data = await response.json();
@@ -11,5 +11,6 @@ const fetchUserAsync = async () => {
   }
 };
 
-export const fetchUser = createAsyncThunk("users/fetchUser", fetchUserAsync);
+export const fetchUsers = createAsyncThunk("users/fetchUser", fetchUsersAsync);
 
+// Path: src/services/bookStoreAPI.js

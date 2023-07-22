@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { removeBook } from '../redux/books/booksSlice';
 
 const Book = ({index, category, title, author, progress, currentChapter}) => {
   const dispatch = useDispatch();
   const onRemoveHandler = () => {
-    dispatch(removeBook({"index": index}));
+    // dispatch(removeBook({"index": index}));
+    console.log("remove book")
   }
 
   return (

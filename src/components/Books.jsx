@@ -1,8 +1,17 @@
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import Book from './Book';
+import {fetchUsers} from '../services/bookStoreAPI';
+import { useEffect } from 'react';
+
 
 const Books = () => {
+  const dispatch = useDispatch();
   const array = useSelector((state) => state.books.array);
+
+  useEffect(() => {
+    dispatch(fetchUsers());
+  }, [dispatch]);
+  
 
   return (
     <ul className="books">
