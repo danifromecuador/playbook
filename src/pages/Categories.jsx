@@ -1,6 +1,8 @@
+import '../styles/Categories.css'
+
 const Categories = () => {
   return (
-    <div>Categories</div>
+    <div className='categories'>Categories</div>
   )
 }
 
