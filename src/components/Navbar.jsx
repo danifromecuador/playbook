@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import '../styles/Navbar.css'
 
 const Navbar = () => {
   return (
@@ -6,12 +7,13 @@ const Navbar = () => {
       <h1>Bookstore CMS</h1>
       <ul>
         <li>
-          <Link to="/">Books</Link>
+          <Link to="/">BOOKS</Link>
         </li>
         <li>
-          <Link to="/categories">Categories</Link>
+          <Link to="/categories">CATEGORIES</Link>
         </li>
       </ul>
+      <div className="img">👤</div>
     </nav>
   );
 };

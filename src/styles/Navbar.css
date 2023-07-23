@@ -1,0 +1,33 @@
+nav {
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 87.5rem;
+  height: 5.938rem;
+  margin: 0 0 2.375rem;
+  padding: 1.438rem 6.188rem 1.688rem 6.25rem;
+}
+
+h1 {
+  color: #0290ff;
+  font-size: 1.875rem;
+  font-family: "Roboto", sans-serif;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  margin: 0 35rem 0 0;
+  column-gap: 15px;
+}
+
+li {
+  text-decoration: none;  
+}
+
+nav a {
+  text-decoration: none;
+  font-family: "Roboto", sans-serif;
+}
+ 
