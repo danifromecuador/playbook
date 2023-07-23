@@ -48,13 +48,16 @@ button {
 }
 
 .center {
-  width: 20%
+  display: flex;
+  align-items: center;
+  width: 20%;
 }
 
 .circular-progress {
-  width: 2rem;
-  height: 2rem;
+  width: 5rem;
+  height: 5rem;
   background-color: red;
+  margin: 10px;
 }
 
 .hrtwo {
@@ -62,7 +65,6 @@ button {
   height: 1px;
   transform: rotate(90deg);
 }
-
 
 .right {
   width: 40%;
@@ -74,7 +76,7 @@ button {
 }
 
 .percentaje {
-  font-size: 3rem;  
+  font-size: 3rem;
 }
 
 .completed {
@@ -94,6 +96,6 @@ button {
 .updateProgress {
   background-color: #0290ff;
   color: white;
-  padding: 1remº;
+  padding: 1rem;
   border-radius: 5px;
 }
