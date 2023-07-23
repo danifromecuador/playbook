@@ -18,7 +18,7 @@ form {
 }
 
 .inputTitle {
-  width: 50%;
+  width: 60%;
   height: 2.5rem;
   padding: 15px;
   font-size: 1.5rem;
@@ -30,7 +30,6 @@ form {
   height: 2.5rem;
   padding: 15px;
   font-size: 1.5rem;
-  margin: 0 0 0 2%;
   border: 1px solid gray;
 }
 
