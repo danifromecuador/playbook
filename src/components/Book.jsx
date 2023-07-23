@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { removeBook, removeBookFromServer } from '../redux/books/booksSlice';
+import '../styles/Book.css';
+import progressImage from '../assets/progress.png';
 
 const Book = ({index, item_id, category, title, author, progress, currentChapter}) => {
   const dispatch = useDispatch();
@@ -29,19 +31,19 @@ const Book = ({index, item_id, category, title, author, progress, currentChapter
       </div>
 
       <div className="center">
-        <div className="circular-progress">O</div>
+        <img src={progressImage} alt="" className='circular-progress'/>
         <div className="percentaje-progress">
-          <div className="percentaje">{progress}</div>
+          <div className="percentaje">{progress}%</div>
           <div className="completed">{progress === "100" ? "Completed" : "Incomplete"}</div>
         </div>        
       </div>
 
-      <hr />
+      <hr  className='hrtwo'/>
 
       <div className="right">
         <div className="current-chapter">CURRENT CHAPTER</div>
-        <div className="chapter">{currentChapter}</div>
-        <button>UPDATE PROGRESS</button>
+        <div className="chapter">Chapter {currentChapter}</div>
+        <button className='updateProgress'>UPDATE PROGRESS</button>
       </div>
 
     </li>
@@ -54,8 +56,8 @@ Book.propTypes = {
   category: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
-  progress: PropTypes.string,
-  currentChapter: PropTypes.string,
+  progress: PropTypes.number,
+  currentChapter: PropTypes.number,
 };
 
 export default Book;

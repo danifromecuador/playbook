@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addBook, addBookToServer } from "../redux/books/booksSlice";
+import '../styles/Input.css'
 
 const Input = () => {
   const [title, setTitle] = useState("");
@@ -51,9 +52,9 @@ const Input = () => {
     <div className="input">
       <h3>ADD NEW BOOK</h3>
       <form>
-        <input type="text" placeholder="Title" onChange={handleTitleInputChange} value={title} />
-        <input type="text" placeholder="Author" onChange={handleAuthorInputChange} value={author} />
-        <button onClick={handleAddButtonClick}>ADD A BOOK</button>
+        <input className="inputTitle" type="text" placeholder="Title" onChange={handleTitleInputChange} value={title} />
+        <input className="inputAuthor" type="text" placeholder="Author" onChange={handleAuthorInputChange} value={author} />
+        <button className="addABook" onClick={handleAddButtonClick}>ADD BOOK</button>
       </form>
     </div>
   );
