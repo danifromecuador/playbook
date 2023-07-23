@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useEffect } from 'react';  
 import Book from './Book';
 import { getBooksFromServer } from '../redux/books/booksSlice';
-
+import '../styles/Books.css'
 
 const Books = () => {
   const dispatch = useDispatch();
@@ -22,8 +22,8 @@ const Books = () => {
           category={element.category}
           title={element.title}
           author={element.author}
-          progress={element.progress}
-          currentChapter={element.currentChapter}
+          progress={64}
+          currentChapter={17}
         />
       ))}
     </ul>

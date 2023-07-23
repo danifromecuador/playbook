@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { removeBook, removeBookFromServer } from '../redux/books/booksSlice';
+import '../styles/Book.css';
 
 const Book = ({index, item_id, category, title, author, progress, currentChapter}) => {
   const dispatch = useDispatch();
@@ -29,9 +30,9 @@ const Book = ({index, item_id, category, title, author, progress, currentChapter
       </div>
 
       <div className="center">
-        <div className="circular-progress">O</div>
+        <div className="circular-progress"></div>
         <div className="percentaje-progress">
-          <div className="percentaje">{progress}</div>
+          <div className="percentaje">{progress}%</div>
           <div className="completed">{progress === "100" ? "Completed" : "Incomplete"}</div>
         </div>        
       </div>
@@ -40,8 +41,8 @@ const Book = ({index, item_id, category, title, author, progress, currentChapter
 
       <div className="right">
         <div className="current-chapter">CURRENT CHAPTER</div>
-        <div className="chapter">{currentChapter}</div>
-        <button>UPDATE PROGRESS</button>
+        <div className="chapter">Chapter {currentChapter}</div>
+        <button className='updateProgress'>UPDATE PROGRESS</button>
       </div>
 
     </li>
