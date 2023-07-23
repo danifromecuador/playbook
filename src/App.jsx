@@ -5,6 +5,7 @@ import Categories from './pages/Categories';
 import './App.css';
 
 const App = () => {
+
   return (
     <div className="App">
       <Navbar />

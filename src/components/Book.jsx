@@ -1,11 +1,13 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { removeBook } from '../redux/books/booksSlice';
+import { removeBook, removeBookFromServer } from '../redux/books/booksSlice';
 
-const Book = ({index, category, title, author, progress, currentChapter}) => {
+const Book = ({index, item_id, category, title, author, progress, currentChapter}) => {
   const dispatch = useDispatch();
+
   const onRemoveHandler = () => {
-    dispatch(removeBook({"index": index}));
+    dispatch(removeBookFromServer(item_id));
+    dispatch(removeBook(index));
   }
 
   return (
@@ -48,6 +50,7 @@ const Book = ({index, category, title, author, progress, currentChapter}) => {
 
 Book.propTypes = {
   index: PropTypes.number.isRequired,
+  item_id: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   author: PropTypes.string.isRequired,
