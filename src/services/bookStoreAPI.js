@@ -17,7 +17,7 @@ const getBooks = createAsyncThunk("books/getBooks", async (thunkAPI) => {
 export function booksToArray() {
   const array = getBooks();
   return array;
-};
+}
 
 export function addBook() {
   console.log('addBook');

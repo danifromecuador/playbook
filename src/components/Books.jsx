@@ -31,5 +31,3 @@ const Books = () => {
 };
 
 export default Books;
-
-// Path: src/components/Books.js

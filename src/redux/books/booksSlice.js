@@ -2,7 +2,9 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const URL =
-  'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/AZWwdB6xdu3Biv6ZvG64/books/';
+  'https://us-central1-bookstore-api-e63c8.cloudfunctions.net/bookstoreApi/apps/bGRMoVcg6JSZDPv8vrLC/books/';
+
+  let array = [];
 
 export const getBooksFromServer = createAsyncThunk('books/getBooks', async () => {
   const formatApiResponse = (response) => {
@@ -17,7 +19,7 @@ export const getBooksFromServer = createAsyncThunk('books/getBooks', async () =>
 
   const response = await axios.get(URL);
   const formatResp = formatApiResponse(response.data);
-  // console.log(formatResp);
+  console.log(formatResp)
   return formatResp;
 });
 
@@ -26,9 +28,13 @@ export const addBookToServer = createAsyncThunk('books/addBook', async (bookData
   return response.data;
 });
 
-export const removeBookFromServer = createAsyncThunk('bookshelf/removeBook', async (bookId) => {
-  const response = await axios.delete(`${URL}${bookId}`);
-  return response.data;
+export const removeBookFromServer = createAsyncThunk('bookshelf/removeBook', async (item_id) => {
+  await axios.delete(`${URL}${item_id}`);
+  array = getBooksFromServer();
+  array.forEach((book, index) => {
+    book.item_id = `item${index}`;
+  });
+  return array;
 });
 
 const initialState = {
@@ -55,14 +61,10 @@ const booksSlice = createSlice({
     },
 
     removeBook: (state = initialState, action) => {
-      const newArray = [...statebooks];
-      newArray.splice(action.payload.index, 1);
-      for (let i = 0; i < newArray.length; i++) {
-        newArray[i] = {
-          ...newArray[i],
-          item_id: `item${i + 1}`,
-        };
-      }
+      const newArray = [...state.books];
+      console.log(action.payload)
+      newArray.splice(action.payload, 1);
+      
       return {
         ...state,
         books: newArray,
@@ -88,5 +90,3 @@ const booksSlice = createSlice({
 
 export default booksSlice.reducer;
 export const { addBook, removeBook } = booksSlice.actions;
-
-// Path: src/redux/books/booksSlice.js
