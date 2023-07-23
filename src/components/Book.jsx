@@ -31,13 +31,14 @@ const Book = ({index, item_id, category, title, author, progress, currentChapter
 
       <div className="center">
         <div className="circular-progress"></div>
+        <img src="../assets/progress.png" alt="" className='circular-progress'/>
         <div className="percentaje-progress">
           <div className="percentaje">{progress}%</div>
           <div className="completed">{progress === "100" ? "Completed" : "Incomplete"}</div>
         </div>        
       </div>
 
-      <hr />
+      <hr  className='hrtwo'/>
 
       <div className="right">
         <div className="current-chapter">CURRENT CHAPTER</div>

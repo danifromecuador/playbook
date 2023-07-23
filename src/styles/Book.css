@@ -51,6 +51,19 @@ button {
   width: 20%
 }
 
+.circular-progress {
+  width: 2rem;
+  height: 2rem;
+  background-color: red;
+}
+
+.hrtwo {
+  width: 5rem;
+  height: 1px;
+  transform: rotate(90deg);
+}
+
+
 .right {
   width: 40%;
   display: flex;
