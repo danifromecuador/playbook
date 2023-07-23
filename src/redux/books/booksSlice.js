@@ -17,7 +17,7 @@ export const getBooksFromServer = createAsyncThunk('books/getBooks', async () =>
 
   const response = await axios.get(URL);
   const formatResp = formatApiResponse(response.data);
-  console.log(formatResp);
+  // console.log(formatResp);
   return formatResp;
 });
 
@@ -43,19 +43,19 @@ const booksSlice = createSlice({
   reducers: {
     addBook: (state = initialState, action) => {
       const newBook = {
-        item_id: `item${state.array.length + 1}`,
+        item_id: `item${state.books.length + 1}`,
         title: action.payload.title,
         author: action.payload.author,
         category: "unknown",
       };
       return {
         ...state,
-        array: [...state.array, newBook],
+        books: [...state.books, newBook],
       };
     },
 
     removeBook: (state = initialState, action) => {
-      const newArray = [...state.array];
+      const newArray = [...statebooks];
       newArray.splice(action.payload.index, 1);
       for (let i = 0; i < newArray.length; i++) {
         newArray[i] = {
@@ -65,7 +65,7 @@ const booksSlice = createSlice({
       }
       return {
         ...state,
-        array: newArray,
+        books: newArray,
       };
     },
   },
@@ -86,7 +86,7 @@ const booksSlice = createSlice({
   },
 });
 
-export const { addBook, removeBook } = booksSlice.actions;
 export default booksSlice.reducer;
+export const { addBook, removeBook } = booksSlice.actions;
 
 // Path: src/redux/books/booksSlice.js

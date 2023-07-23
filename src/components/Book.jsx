@@ -4,6 +4,7 @@ import { removeBookFromServer } from '../redux/books/booksSlice';
 
 const Book = ({index, item_id, category, title, author, progress, currentChapter}) => {
   const dispatch = useDispatch();
+  
   const onRemoveHandler = () => {
     console.log("remove book")
     dispatch(removeBookFromServer(item_id));
